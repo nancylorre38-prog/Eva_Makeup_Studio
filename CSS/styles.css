@@ -1,4 +1,4 @@
-
+CSS PARTE 1 / 4 : 
 html, body {
     overflow-x: hidden; /* Corta cualquier cosa que se salga por los costados */
     width: 100%;
@@ -41,7 +41,7 @@ body {
   padding: 20px 8%;
   background: rgba(0, 0, 0, 0.85);
   position: fixed;
-  width: 100%;
+  width: 100vw;;
   z-index: 100;
 }
 
@@ -64,7 +64,21 @@ body {
 }
 
 /* HERO */
-.hero {
+
+.hero { 
+
+  /* Arreglo para que el Navbar no tape el título en pantallas chicas */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 140px; /* Esto empuja el texto hacia abajo */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem; /* Achicamos un pelín la letra para que entre bien */
+        line-height: 1.2;
+    }
+}
+
   height: 100vh;
   background: linear-gradient(
       rgba(0, 0, 0, 0.6),
@@ -187,30 +201,16 @@ body {
 footer {
   text-align: center;
   padding: 30px;
-  background-color: #000;
-  font-size: 0.8rem;
-  color: #777;
-}
-
-/* ANIMACIONES */
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+  background-color: #000;}
+ 
 /* HERO WRAPPER */
 .hero-wrapper {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 20px; /* bajalo de 40 a 20 */
+    width: 100%;
+    max-width: 100vw; /* AGREGAR ESTO */
 }
 
 /* IMAGEN EVA */
@@ -257,40 +257,61 @@ footer {
   }
 }
 
-/* CAROUSEL */
+/* --- CONFIGURACIÓN GENERAL (Computadora) --- */
+
 .carousel-section {
-  padding: 100px 8%;
-  background-color: var(--black);
-}
-
-.carousel-section h2 {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  color: var(--gold);
-  margin-bottom: 50px;
-}
-
-.carousel {
-  overflow: hidden;
+  padding: 60px 8% 0;
+  background-color: #000000;
   position: relative;
 }
 
+
+.carousel-title {
+    color: #c5a059;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 40px; 
+    text-transform: uppercase;
+}
+
 .carousel-track {
-  display: flex;
-  gap: 30px;
- animation: scrollCarousel 30s linear infinite;
+    display: flex;
+    gap: 30px;
+    animation: scrollCarousel 30s linear infinite;
 }
 
 .carousel-track img {
-  width: 300px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 20px;
-  transition: transform 0.6s ease;
+    width: 250px; 
+    height: 350px; 
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.6s ease;
 }
 
 .carousel-track img:hover {
-  transform: scale(1.08);
+    transform: scale(1.08);
+}
+
+/* --- RESPONSIVE (Celular/Pantalla chica) --- */
+
+@media (max-width: 768px) {
+    .carousel-section {
+        padding: 60px 5% !important; /* Menos espacio para que no tape */
+        margin-top: 0 !important;
+        background-color: #000000;
+    }
+
+    .carousel-title {
+        font-size: 1.8rem !important; /* Título más chico para el celular */
+        margin-bottom: 25px;
+    }
+
+    .carousel-track img {
+        width: 180px; /* Las fotos se achican un poco en el celular */
+        height: 250px;
+    }
 }
 
 /* ANIMACIÓN CAROUSEL */
@@ -313,23 +334,15 @@ footer {
 }
 
 /* HERO MI TRABAJO */
-.hero-work {
-  height: 70vh;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.85)
-    ),
-    url("hero-work.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 8%;
-}
-
-.hero-work-content {
-  max-width: 700px;
-  animation: fadeUp 1.2s ease;
+.hero-work-content 
+{
+    max-width: 900px;         /* Limita el ancho para que sea fácil de leer */
+    margin: 0 auto;           /* Esto es lo que "empuja" el bloque al centro horizontal */
+    text-align: center;       /* Centra el texto (título y párrafo) por dentro */
+    display: flex;            /* Usamos flex para asegurar la alineación */
+    flex-direction: column;   /* Ponemos el título arriba y el texto abajo */
+    align-items: center;      /* Centra los elementos hijos horizontalmente */
+    padding: 0 20px;          /* Un poquito de aire a los costados para celular */
 }
 
 .hero-work h1 {
@@ -343,6 +356,386 @@ footer {
   color: var(--nude);
   font-size: 1rem;
 }
+/* --- SECCIÓN MI TRABAJO --- */
+.hero-work {
+    padding: 120px 20px 60px; /* Da espacio para que el menú no tape el título */
+    text-align: center;
+    background-color: #1a1a1a; /* Fondo oscuro para que resalte el dorado y blanco */
+}
+
+.hero-work-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #c5a059; /* El dorado elegante que usás siempre */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-work-content p {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+
+/* GALERÍA */
+.work-gallery {
+  padding: 120px 8%;
+  background-color: var(--dark);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* CTA FINAL */
+.work-cta {
+  padding: 100px 8%;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+}
+
+.work-cta h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-work h1 {
+    font-size: 2.2rem;
+  }
+
+  .gallery-grid img {
+    height: 300px;
+  }
+}
+
+/* =========================
+   LOGO ORIGINAL + HOVER PREMIUM
+========================= */
+
+.logo-wrapper {
+  width: 110px;        /* más presencia */
+  cursor: pointer;
+}
+
+.logo-wrapper img {
+  width: 100%;
+  height: auto;        /* CLAVE para respetar la forma */
+  display: block;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* HOVER */
+.logo-wrapper:hover img {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
+}
+
+/* HOVER */
+.logo-wrapper:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
+}
+
+
+/* Hover elegante */
+.logo-wrapper:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+}
+
+/* Animación de brillo suave */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.hero {
+  min-height: calc(100vh - 90px);
+  padding-top: 120px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+
+width: max-content; animation: scrollCarousel 40s linear infinite; } @keyframes scrollCarousel { from { transform: translateX(0); } to { transform: translateX(-50%); } } body { margin: 0; font-family: 'Poppins', sans-serif; background: #fff; color: #333; } /* NAVBAR */ .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; position: sticky; top: 0; background: rgba(255,255,255,0.95); z-index: 1000; } .logo-wrapper img { width: 70px; border-radius: 50%; transition: transform 0.4s, box-shadow 0.4s; } .logo-wrapper img:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(201,157,111,0.6); } nav a { margin-left: 25px; text-decoration: none; font-weight: 500; color: #333; } /* DROPDOWN */ .dropdown { position: relative; display: inline-block; } .dropdown-btn { cursor: pointer; } .dropdown-menu { display: none; position: absolute; background: #fff; top: 35px; left: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-radius: 8px; } .dropdown-menu a { display: block; padding: 12px 20px; white-space: nowrap; } .dropdown:hover .dropdown-menu { display: block; } /* HERO */ .hero-clases { padding: 120px 20px; text-align: center; background: linear-gradient(to right, #f7e7d8, #fdf9f6); } /* SECCIONES */ .clase-section { display: flex; align-items: center; padding: 100px 10%; gap: 60px; } .clase-section.reverse { flex-direction: row-reverse; } .clase-texto h2 { font-size: 2.2rem; color: #c99d6f; } .clase-texto ul { padding-left: 20px; } .clase-texto li { margin-bottom: 10px; } .clase-img img { width: 100%; max-width: 420px; border-radius: 20px; transition: transform 0.5s; } .clase-img img:hover { transform: scale(1.05); } /* BOTÓN */ .btn-primary { display: inline-block; margin-top: 25px; padding: 14px 30px; background: #c99d6f; color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition:transform 0.3s; } .btn-primary:hover { background: #b2885f; transform: translateY(-3px); } /* FOOTER */ .footer { text-align: center; padding: 40px; background: #111; color: #fff; } .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; } .reveal.active { opacity: 1; transform: translateY(0); } .dropdown { position: relative; } .dropdown-menu { position: absolute; top: 120%; left: 0; background: rgba(0, 0, 0, 0.9); border-radius: 12px; padding: 10px 0; min-width: 200px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 999; } .dropdown-menu a { display: block; padding: 10px 20px; color: #d4af37; /* dorado Eva */ text-decoration: none; font-size: 0.95rem; } .dropdown-menu a:hover { background: rgba(212, 175, 55, 0.15); } .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); } .navbar { height: 90px; }
+
+/* =============================
+   RESET Y BASE
+============================= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#faf7f8;
+  color:#333;
+  line-height:1.6;
+}
+
+/* =============================
+   NAVBAR (ÚNICA Y LIMPIA)
+============================= */
+.navbar{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:80px;
+  background:rgba(255,255,255,.95);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 50px;
+  z-index:9999;
+  box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
+.logo-wrapper img{
+  height:55px;
+  border-radius:50%;
+  transition:.4s
+}
+.logo-wrapper img:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px rgba(201,157,111,.6)
+}
+.navbar nav{
+  display:flex;
+  align-items:center;
+  gap:30px
+}
+.navbar nav a{
+  text-decoration:none;
+  color:#2c2c2c;
+  font-weight:500
+}
+.navbar nav a:hover{color:#b76e79}
+
+/* =============================
+   DROPDOWN
+============================= */
+.dropdown{position:relative}
+.dropdown-menu{
+  position:absolute;
+  top:35px;left:0;
+  background:#fff;
+  min-width:200px;
+  padding:10px 0;
+  border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:.3s
+}
+.dropdown-menu a{
+  display:block;
+  padding:10px 20px;
+  color:#333;
+  text-decoration:none
+}
+.dropdown-menu a:hover{background:#f4e6ea}
+.dropdown:hover .dropdown-menu{
+  opacity:1;visibility:visible;transform:translateY(0)
+}
+
+/* =============================
+   HERO INDEX
+============================= */
+.hero-index{
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url("../IMG/carousel 1.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding-top:80px;
+  color:#fff
+}
+.hero-index h1{
+  font-size:3rem;
+  letter-spacing:1px
+}
+.hero-index p{
+  max-width:600px;
+  margin:15px auto 0;
+  opacity:.95
+}
+
+/* =============================
+   CAROUSEL INDEX (FONDO CLARO)
+============================= */
+.carousel-index{
+  background:#faf7f8;
+  padding:80px 0
+}
+.carousel-track{
+  display:flex;
+  gap:40px;
+  width:max-content;
+  animation:scrollCarousel 40s linear infinite
+}
+@keyframes scrollCarousel{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* =============================
+   SECCIONES INDEX
+============================= */
+.section-index{
+  display:flex;
+  align-items:center;
+  gap:60px;
+  padding:100px 10%;
+  background:#fff
+}
+.section-index:nth-child(even){background:#faf7f8}
+.section-text h2{color:#c99d6f;font-size:2.2rem}
+.section-text p{margin:20px 0}
+.section-img img{
+  max-width:420px;
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(0,0,0,.15)
+}
+
+/* =============================
+   BOTÓN
+============================= */
+.btn-primary{
+  display:inline-block;
+  padding:14px 30px;
+  background:#c99d6f;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  transition:.3s
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  background:#b2885f
+}
+
+/* =============================
+   FOOTER (SIN NEGRO PESADO)
+============================= */
+.footer{
+  background:#2c2c2c;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+  font-size:.9rem
+}
+
+/* =============================
+   REVEAL
+============================= */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s}
+.reveal.active{opacity:1;transform:none}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media(max-width:768px){
+  .section-index{flex-direction:column;padding:60px 8%}
+  .hero-index h1{font-size:2rem}
+}
+
+
+/* =========================
+   MI TRABAJO – PÁGINA
+========================= */
+
+/* LINK ACTIVO */
+.navbar nav a.active {
+  color: var(--gold);
+}
+
+/* HERO MI TRABAJO */
+.hero-work-content 
+{
+    max-width: 900px;         /* Limita el ancho para que sea fácil de leer */
+    margin: 0 auto;           /* Esto es lo que "empuja" el bloque al centro horizontal */
+    text-align: center;       /* Centra el texto (título y párrafo) por dentro */
+    display: flex;            /* Usamos flex para asegurar la alineación */
+    flex-direction: column;   /* Ponemos el título arriba y el texto abajo */
+    align-items: center;      /* Centra los elementos hijos horizontalmente */
+    padding: 0 20px;          /* Un poquito de aire a los costados para celular */
+}
+
+.hero-work h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hero-work p {
+  color: var(--nude);
+  font-size: 1rem;
+}
+/* --- SECCIÓN MI TRABAJO --- */
+.hero-work {
+    padding: 120px 20px 60px; /* Da espacio para que el menú no tape el título */
+    text-align: center;
+    background-color: #1a1a1a; /* Fondo oscuro para que resalte el dorado y blanco */
+}
+
+.hero-work-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #c5a059; /* El dorado elegante que usás siempre */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-work-content p {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 
 /* GALERÍA */
 .work-gallery {
@@ -595,7 +988,7 @@ nav a {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
-  transition: background 0.3s, transform 0.3s;
+  transition:transform 0.3s;
 }
 
 .btn-primary:hover {
@@ -1734,4 +2127,110 @@ nav a {
 img {
     max-width: 100%; /* La imagen nunca será más grande que el celular */
     height: auto;
+} 
+/* AJUSTES PARA CELULARES */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.2rem !important; /* Achica el título para que no se corte */
+    }
+    
+    .navbar {
+        padding: 10px 5%; /* Menos espacio a los costados */
+    }
+
+    .navbar nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    .navbar nav a {
+        margin-left: 10px;
+        font-size: 0.8rem; /* Letra más chica para el menú */
+    }
+
+    .split-section, .clase-section {
+        flex-direction: column !important;
+        padding: 40px 5%;
+        text-align: center;
+    }
+
+    .image-box img, .clase-img img {
+        height: 300px !important; /* Imágenes más bajas en celular */
+    }
+} 
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Empieza 30px más abajo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Termina en su posición original */
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out forwards; /* Dura 1.2 segundos */
+} 
+@media (max-width: 768px) {
+    .carousel-section {
+        padding: 40px 5%; /* Menos espacio todavía en pantallas chicas */
+    }
+    .carousel-title {
+        font-size: 1.8rem; /* Título más acorde al tamaño del celular */
+    }
+} 
+
+/* =========================
+   RESPONSIVE MOBILE – INDEX
+========================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  nav {
+    padding: 10px 16px;
+  }
+
+  .logo img {
+    max-height: 42px;
+    width: auto;
+  }
+
+  /* HERO */
+  .hero-section {
+    padding: 80px 20px 60px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* BOTÓN */
+  .hero-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  /* CAROUSEL */
+  .carousel-section {
+    padding: 60px 16px;
+  }
+
+  .carousel-title {
+    position: relative;
+    margin-bottom: 24px;
+    font-size: 1.6rem;
+  }
+
+  .carousel-track img {
+    width: 220px;
+    border-radius: 18px;
+  }
 }
