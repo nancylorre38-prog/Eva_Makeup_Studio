@@ -608,10 +608,14 @@ body{
   background: rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.8)
   padding}css(80px 0)
+.carousel-info h2, 
+.carousel-info p {
+    color: #c5a059 !important;
+}
 
 footer, 
 .contact-section {
-    background-color: #fff !important;
+    background-color: #c5a059 !important;
 }
 
 .carousel-track
