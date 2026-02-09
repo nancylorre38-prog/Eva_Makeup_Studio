@@ -1,4 +1,4 @@
-CSS PARTE 1 / 4 : 
+
 html, body {
     overflow-x: hidden; /* Corta cualquier cosa que se salga por los costados */
     width: 100%;
@@ -260,11 +260,12 @@ footer {
 /* --- CONFIGURACIÓN GENERAL (Computadora) --- */
 
 .carousel-section {
-  padding: 60px 8% 0;
-  background-color: #000000;
-  position: relative;
+    background: radial-gradient(#444444 0%, #222222 100%);
+    padding: 60px 8%;
+    position: relative;
+    margin-top: 0;
+    border: none;
 }
-
 
 .carousel-title {
     color: #c5a059;
@@ -604,12 +605,19 @@ body{
    CAROUSEL INDEX (FONDO CLARO)
 ============================= */
 .carousel-index{
-  background:#faf7f8;
-  padding:80px 0
+  background: rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.8)
+  padding}css(80px 0)
+
+footer, 
+.contact-section {
+    background-color: #fff !important;
 }
-.carousel-track{
+
+.carousel-track
+{
   display:flex;
-  gap:40px;
+  <gap :> (40px);
   width:max-content;
   animation:scrollCarousel 40s linear infinite
 }
@@ -1066,7 +1074,8 @@ nav a {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #faf7f8;
+  background-color: rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.8)
   color: #333;
   line-height: 1.6;
 }
@@ -1077,7 +1086,8 @@ body {
   top: 0;
   width: 100%;
   height: 80px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(0, 0, 0, 0.6),
+  rgba(0, 0, 0, 0.8)
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2233,4 +2243,50 @@ img {
     width: 220px;
     border-radius: 18px;
   }
+}
+ 
+@media (max-width: 768px) {
+    /* Ajuste del Hero para que la foto de Eva y el texto no se tapen */
+    .hero {
+        flex-direction: column-reverse; /* Pone la foto arriba del texto */
+        padding: 80px 5% 40px;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+
+    /* Ajuste de la sección de Trabajos Destacados */
+    .carousel-section {
+        padding: 40px 5% !important;
+        margin-top: 0 !important;
+    }
+
+    .carousel-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 20px;
+    }
+
+    /* Ajuste de las imágenes del carrusel para que no sean gigantes */
+    .carousel-track img {
+        width: 180px;
+        height: 260px;
+    }
+
+    /* Texto informativo debajo del carrusel */
+    .carousel-info h2 {
+        font-size: 1.4rem !important;
+    }
+
+    .carousel-info p {
+        font-size: 1rem !important;
+        padding: 0 10px;
+    }
 }
