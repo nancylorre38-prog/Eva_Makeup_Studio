@@ -33,83 +33,7 @@ body {
   line-height: 1.6;
 }
 
-/* NAVBAR */
 
-/*.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 8%;
-  background: rgba(0, 0, 0, 0.85);
-  position: fixed;
-  width: 100vw;;
-  z-index: 100;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--gold);
-}
-
-.navbar nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: var(--white);
-  font-size: 0.9rem;
-  transition: color 0.3s;
-}
-
-.navbar nav a:hover {
-  color: var(--gold);
-}*/
-
-/* HERO */
-
-/*.hero { 
-
-  /* Arreglo para que el Navbar no tape el título en pantallas chicas */
-/*@media (max-width: 768px) {
-    .hero {
-        padding-top: 140px; /* Esto empuja el texto hacia abajo */
-    /*}
-    
-    .hero-content h1 {
-        font-size: 2.2rem; /* Achicamos un pelín la letra para que entre bien */
-        /*line-height: 1.2;
-    }
-}
-
-  height: 100vh;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.8)
-    ),
-    url("hero-eva.jpg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 0 8%;
-}
-
-.hero-content {
-  max-width: 600px;
-  animation: zoomIn 1.2s ease;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero h1 span {
-  color: var(--gold);
-}
-
-.hero p {
-  margin-bottom: 30px;
-  color: var(--nude);
-}
 /* NAVBAR BASE */
 .navbar {
     display: flex;
@@ -171,7 +95,7 @@ body {
         width: 100%;
         background: rgba(0, 0, 0, 0.95);
         padding: 20px 0;
-        text-align: center;
+        text-align: left;
     }
 
     .nav-menu.active {
@@ -2388,4 +2312,24 @@ img {
   .hero-wrapper {
     padding-top: 140px;
   }
+}
+
+/* ESTO ACTIVA EL MENÚ EN MÓVIL */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Se oculta por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Aparece debajo de la barra negra */
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px 0;
+        z-index: 1000; /* Para que no quede atrás de las fotos */
+    }
+
+    /* Cuando hacés clic, el JS agrega 'active' y el CSS hace esto: */
+    .nav-menu.active {
+        display: flex !important;
+    }
 }

@@ -11,3 +11,15 @@ window.addEventListener('scroll', () => {
   });
 });
 
+//Este scrip es para el botón de hamburguesa
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            // Esto "prende y apaga" la clase active en el menú
+            navMenu.classList.toggle('active');
+        });
+    }
+});
